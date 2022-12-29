@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <pre>
+        [문제1] 4의 배수만 출력한다.
+        [정답1] 20 40
+        
+        [문제2] 4의 배수의 합을 출력한다.
+        [정답2] 60
+        
+        [문제3] 4의 배수의 개수를 출력한다.
+        [정답3] 2
+       
+    </pre>
+
+        <%
+            let answer1 = '';
+            let answer2 = 0;
+            let answer3 = 0;
+
+            arr = [1,2,3,20,40];
+
+            let count = 0;
+            for (const v of arr) {
+                if (v % 4 == 0) {
+                    answer1 += `${v} `;
+                    answer2 += v;
+                    count += 1;
+                }
+            }
+            answer3 = count;
+        %>
+        <p><%=answer1%></p>
+        <p><%=answer2%></p>
+        <p><%=answer3%></p>
+        <a href="0302A">정답확인</a>
+
+</body>
+</html>

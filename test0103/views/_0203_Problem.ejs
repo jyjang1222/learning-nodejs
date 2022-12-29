@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <pre>
+        [문제] 
+            1 에서 200 사이의 숫자중 다음 조건에 전부 맞는 숫자를 출력하시오.
+
+            [조건1] 6의 배수를출력
+            [조건2] 100에 가장가까운 수를 출력 
+        [정답]
+		    102	
+    </pre>
+    <%
+        let answer = 0;
+        let n1 = 0
+
+        for (let i = 1; i < 201; i++) {
+            if (i % 6 == 0) {
+                if (i < 100) {
+                    n1 = i
+                } 
+            }
+        }
+        const n2 = n1 + 6
+        if (100 - n1 > n2 - 100) {
+            answer = n2;
+        } else {
+            answer = n1;
+        }
+    %>
+        
+
+	<p><%=answer%></p>
+    <a href="0203A">정답확인</a>
+
+</body>
+</html>

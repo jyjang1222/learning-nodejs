@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        [문제]
+            1. 10회 반복을 한다.
+            2. 1~100 사이의 랜덤 숫자를 저장한다.(학생의 성적)
+            3. 성적이 60점 이상이면 합격생이다.
+            ---------------------------------------
+            [1] 전교생(10명)의 총점과 평균을 출력한다.
+            [2] 합격자 수를 출력한다.
+            [3] 1등 학생의 번호와 성적을 출력한다.
+    </pre>
+
+    <%  
+        const student = [];
+
+        for (let i = 0; i < 10; i++) {
+            const r = Math.trunc(Math.random() * 100 + 1);
+            student.push(r);
+        }
+        
+        let print = '';
+        let count = 0;
+        let total = 0;
+        let avg = 0;
+        let bestScore = 0;
+        let bestIdx = 0;
+
+        let i = 0;
+        let max = 0;
+
+        for (const v of student) {
+            print += `${v} `;
+            if (v >= 60) {
+                count += 1;
+            }
+
+            total += v;
+            avg = total / student.length;
+
+            if (v > max) {
+                max = v;
+                bestIdx = i+1;
+            }
+            bestScore = max
+            i++;
+        }
+    %>
+
+    <p><%=print%></p>
+    <p><%=total%> <%=avg%></p>
+    <p><%=count%></p>
+    <p><%=bestIdx%> <%=bestScore%></p>
+    <a href="0400M">돌아가기</a>
+</body>
+</html>

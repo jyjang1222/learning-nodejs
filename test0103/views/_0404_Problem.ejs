@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        var arr1 = [0,10,20,30,40]
+        var arr2 = [10,20,30,40,0]
+
+        var a = 90
+        var b = 60
+
+        [문제1] arr1 배열의 값들을 앞으로 한칸씩 당기고 맨뒤에 a의  값을 저장한다.
+        [정답1] arr1 = [20,30,40,50,90];
+
+         
+        [문제2] arr2 배열의 값들을 뒤로 하나씩 밀어낸후 맨 앞에 b의 값을 저장한다.
+        [정답2] arr2 = [60,10,20,30,40];
+    </pre>
+    <%
+        let arr1 = [0,10,20,30,40];
+        const arr2 = [10,20,30,40,0];
+
+        const a = 90;
+        const b = 60;
+
+        let answer1 = '';
+        let answer2 = '';
+
+        for (let i = 0; i < arr1.length - 1; i++) {
+            arr1[i] = arr1[i + 1];
+            lastIdx = arr2.length-1;
+            arr2[lastIdx - i] = arr2[lastIdx - i-1];
+        }
+
+        arr1[arr1.length-1] = a;
+        arr2[0] = b;
+
+        for (const v of arr1) {
+            answer1 += `${v} `;
+        }
+        for (const v of arr2) {
+            answer2 += `${v} `;
+        }
+    %>
+
+    <p><%=answer1%></p>
+    <p><%=answer2%></p>
+    <a href="0400M">돌아가기</a>
+</body>
+</html>

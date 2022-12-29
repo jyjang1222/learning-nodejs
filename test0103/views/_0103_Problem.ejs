@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <pre>
+        [문제]
+            아래 score 시험점수에 해당하는 학점을 출력하시오.
+            아래는 점수표이다.
+            
+            [점수표]
+            100~91 이면 A학점,
+            90~81  이면 B학점,
+            80이하는 "재시험"
+                
+            단, 만점이거나, A학점과 B학점의 일의 자리가 7점이상이면 + 추가하시오.
+            A학점과 B학점의 일의 자리가 3점이하이면 - 추가하시오.	
+            
+            점수가 92점일 경우의 학점을 얼마인지 구하시오.
+        [정답]
+            A-
+
+    </pre>
+        <%
+            const score = 92;
+            let msg = '재시험';
+
+            if (score > 90) {
+                msg = 'A'
+            } else if (score > 80) {
+                msg = 'B'
+            }
+
+            if (score % 10 >= 7) {
+                msg += '+'
+            }
+            if (score % 10 <= 3) {
+                msg += '-'
+            }
+        %>
+
+        <p><%=msg%></p>
+        <a href="0103A">정답확인</a>
+  
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        [문제] a 배열을 아래와같이 사각형모양으로출력한다.
+            a = [1,2,3,4,5,6,7,8.9]
+            
+        [힌트] 3칸마다 줄을 바꿔준다.
+  
+             1 2 3
+             4 5 6
+             7 8 9  
+
+    </pre>
+    <%
+        a = [1,2,3,4,5,6,7,8,9];
+        answer = '';
+
+        let i = 1;
+        for (const v of a) {
+            answer += `${v}`
+            i++;
+        }
+
+        const answer1 = answer.substring(0, 3);
+        const answer2 = answer.substring(3, 6);
+        const answer3 = answer.substring(6);
+    %>
+    <p><%=answer%></p>
+    <p><%=answer1%></p>
+    <p><%=answer2%></p>
+    <p><%=answer3%></p>
+    <a href="0400M">돌아가기</a>
+</body>
+</html>

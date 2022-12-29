@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <pre>
+        [문제1] arr 배열에 1~100점 사이의 랜덤 정수를 5개 저장하고 출력
+        [정답1] 87, 11, 92, 14, 47
+        
+        [문제2] 전교생의 총점과 평균 출력
+        [정답2] 총점(251) 평균(50.2)
+        
+        [문제3] 성적이 60점 이상이면 합격. 합격생 수 출력
+        [정답3] 2명
+       
+    </pre>
+        <%
+            let answer1 = '';
+            let answer2 = '';
+            let answer3 = 0;
+
+            const arr = [];
+            for (let i = 0; i < 5; i++) {
+                const n = Math.trunc(Math.random() * 100 + 1)
+                arr.push(n);
+                answer1 += `${n} `
+            }
+            let total = 0;
+            let count = 0;
+            for (const v of arr) {
+                total += v;
+                if (v >= 60) {
+                    count += 1;
+                }
+            }
+            const avg = total / arr.length;
+            answer2 = `${total} ${avg}`
+            answer3 = count;
+        %>
+        
+        <p><%=answer1%></p>
+        <p><%=answer2%></p>
+        <p><%=answer3%></p>
+        <a href="0303A">정답확인</a>
+
+</body>
+</html>
