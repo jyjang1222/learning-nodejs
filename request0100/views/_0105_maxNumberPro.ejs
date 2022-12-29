@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--
+    [문제]
+        1. 숫자 3개를 입력받는다.
+        2. 입력받은 3개의 수를 비교한다.
+        3. 가장 큰 수(MAX)를 출력한다.
+-->
+<%
+    const n1 = num1;
+    const n2 = num2;
+    const n3 = num3;
+    let max = n1;
+    if (n2 > max) {
+        max = n2;
+    }
+    if (n3 > max) {
+        max = n3;
+    }
+%>
+
+<p>숫자1: <%=n1%>, 숫자2: <%=n2%>, 숫자3: <%=n3%></p>
+<p>가장큰수: <%=max%></p>
+<a href="0100">돌아가기</a>
+</body>
+</html>
