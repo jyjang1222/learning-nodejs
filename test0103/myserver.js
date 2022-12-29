@@ -113,3 +113,4 @@ app.get('/0405P', (req, res) => {
 })
 app.get('/0406P', (req, res) => {
     res.render('_0406_Problem.ejs');
+})
