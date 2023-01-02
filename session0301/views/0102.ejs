@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {margin-right: 20px;}
+        li {list-style: none;}
+    </style>
+</head>
+<body>
+    <div align="center">
+        <h1>합격생(60점이상)</h1>
+        <div id="main">
+            <ul>
+                <% let id = 1 %>
+                <% for (const score of scoreDB) { %>
+                    <% if (score >= 60) { %>
+                        <li><span>번호: <%= id %></span><span>점수: <%= score %></span></li>
+                    <% } %>
+                    <% id++ %>
+                <% } %>
+            </ul>
+        </div>
+        <a href="0101">돌아가기</a>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div align="center">
+		<h1>수정하기</h1>
+        <p><%= scoreDB[index] %> 의 값을 수정합니다.</p>
+        <form action="updateScore">
+            <span>수정할 값 입력: <input type="number" name="updateValue"></span>
+            <input type="hidden" value="<%=index%>" name="index">
+            <button type="submit">수정</button>
+        </form>
+        <a href="0101">돌아가기</a>
+	</div>
+</body>
+</html>
