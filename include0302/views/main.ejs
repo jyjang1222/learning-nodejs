@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0; 
+            padding: 0; 
+        }
+        li {list-style: none;}
+        .top {
+            width: 100%;
+            height: 80px;
+            background-color: blue;
+            color: white;
+            text-align: center;
+            line-height: 80px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 30px;
+            background-color: blue;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            font-size: 11px;
+        }
+
+        a { 
+            text-decoration: none; 
+        }
+
+        .navtext {
+            color: black;
+        }
+        .navtext:hover{
+            color : red;
+        }
+        ul[class*='nav'] {display: flex;gap:40px}
+        .nav1 {
+            width: 100%;
+            height: 40px;
+            background-color: lightgreen;
+            line-height: 40px;
+        }
+        .nav2 {
+            width: 100%;
+            height: 40px;
+            background-color: lightblue;
+            line-height: 40px;
+        }
+        .nav3 {
+            width: 100%;
+            height: 40px;
+            background-color: lightgoldenrodyellow;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <%- include('header.ejs') %>
+    <%- include('nav.ejs') %>
+    <main>
+        <img src="타이틀.jpg" alt="타이틀">
+    </main>
+    <%- include('footer.ejs') %>
+</body>
+</html>
