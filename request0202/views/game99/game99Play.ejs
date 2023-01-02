@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%
+        const r1 = Math.trunc(Math.random() * 8) + 2;
+        const r2 = Math.trunc(Math.random() * 8) + 2;
+        const answer = r1 * r2;
+    %>
+    <h1>구구단 게임</h1>
+    <h2>5문제를 모두 맞추면 게임 종료</h2>
+    <h3>[<%=gameCount%>]번째 게임: [<%=gameScore%>]점</h3>
+    <form action="game99Result">
+        <input type="hidden" name="gameCount" value="<%=gameCount%>">
+        <input type="hidden" name="gameScore" value="<%=gameScore%>">
+        <input type="hidden" name="answer" value="<%=answer%>">
+        <div><%=r1%> * <%=r2%> = <input type="text" name="inputAnswer"></div>
+        <button type="submit">전송</button>
+    </form>
+</body>
+</html>

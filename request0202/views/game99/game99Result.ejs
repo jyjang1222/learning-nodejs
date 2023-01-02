@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%
+        let msg = '오답';
+        if (answer == inputAnswer) {
+            msg = '정답';
+            gameScore += 20;
+        }
+        if (gameCount == 5) {
+            msg = '종료';
+        }
+    %>
+    <div align="center">
+    <h2>[<%=gameCount%>]번째 게임 : [<%=gameScore%>]점</h2>
+    <h3><%=msg%></h3>
+    <% if (gameCount < 5) { %>
+        <a href="game99Play?gameCount=<%= gameCount+1 %>&gameScore=<%=gameScore%>">뒤로가기</a>
+    <% } %>
+    <% if (gameCount == 5) { %>
+        <a href="game99Main">메인으로</a>
+    <% } %>
+</div>
+</body>
+</html>
