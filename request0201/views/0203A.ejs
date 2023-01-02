@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+         [문제]
+			1. 구구단 문제를 출제하기 위해, 숫자 2개를 랜덤저장한다.
+			2. 저장한숫자를 토대로 구구단 문제를 출력한다.
+			 예)	3 x 7 = ?
+			3. 문제에 해당하는 정답을 입력받는다.
+			4. 정답을 비교 "정답" 또는 "땡"을 출력한다.
+    -->
+    <%
+        let msg = '땡';
+        const res = n1 * n2;
+        if (input === res) {
+            msg = '정답';
+        }
+    %>
+    <h2><%=n1%> x <%=n2%> = <%=res%></h2>
+    <h3>입력한 정답: <%=input%></h3>
+    <h4><%=msg%></h4>
+    <a href="0200">돌아가기</a>
+</body>
+</html>

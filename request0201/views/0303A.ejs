@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%  
+        const add = 1;
+        const subtract = 2;
+        const multiply = 3;
+        let oper = '';
+        let msg = '';
+        let calc = 0;
+
+        if (op === add) {
+            oper = '+';
+            calc = r1 + r2;
+        }
+        if (op === subtract) {
+            oper = '-';
+            calc = r1 - r2;
+        }
+        if (op === multiply) {
+            oper = '*';
+            calc = r1 * r2;
+        }
+        
+        if (calc === res) {
+            msg = '정답'
+        } else {
+            msg = '오답'
+        }
+    %>
+
+    <h2>문제: <%=r1%> ? <%=r2%> = <%=res%></h2>
+    <h3>정답: <%=oper%></h3>
+    <h3>결과: <%=msg%></h3>
+    <a href="0300">돌아가기</a>
+
+</body>
+</html>

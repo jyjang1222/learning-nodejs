@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        [문제] 
+			1. 1~10개의 숫자중 랜덤으로 한개의 숫자를 저장한다.
+			2. 랜덤의 숫자가 6이상인지 6미만인지 맞추는게임이다. 
+            3. 6이상이면 up 을 적는다.
+            4. 6미만이면 down 을 적는다. 
+    -->
+    <%  
+        const up = 'up';
+        const down = 'down';
+        let msg = '오답';
+
+        if (
+            input === up && r >= 6 ||
+            input === down && r < 6
+        ) {
+            msg = '정답';
+        }
+    %>
+    <p>랜덤숫자: <%=r%></p>
+    <p>결과: <%=msg%></p>
+    <a href="0200">돌아가기</a>
+</body>
+</html>

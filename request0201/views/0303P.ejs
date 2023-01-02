@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*  text-decoration: none;  ==> a태그의 밑줄 을 없애준다. */
+        a {
+            text-decoration: none; 
+        }
+
+    </style>
+</head>
+<body>
+    <!--
+        [연산자게임]
+            [1]  (4~9) 사이의 랜덤숫자 두개와 그 숫자로 연산한 답이 제시된다. (예시) 3 ? 4 = 12
+            [2]  ? 에들어갈 연산자를 고르면된다. 
+
+    -->
+    <%  
+        const add = 1;
+        const subtract = 2;
+        const multiply = 3;
+
+        const r1 = Math.trunc(Math.random() * 6 + 4);
+        const r2 = Math.trunc(Math.random() * 6 + 4);
+        
+        const op = Math.trunc(Math.random() * 3 + 1);
+
+        let res = 0;
+
+        if (op == add) {
+            res = r1 + r2
+        }
+        if (op == subtract) {
+            res = r1 - r2
+        }
+        if (op == multiply) {
+            res = r1 * r2
+        }
+    %>
+
+    <h1>연산자 고르기</h1>
+
+    <h2><%=r1%> ? <%=r2%> = <%=res%></h2>
+    <br>
+    <h3><a href="0303A?r1=<%=r1%>&r2=<%=r2%>&res=<%=res%>&op=<%=add%>">+</a></h3>
+    <h3><a href="0303A?r1=<%=r1%>&r2=<%=r2%>&res=<%=res%>&op=<%=subtract%>">-</a></h3>
+    <h3><button onclick="location.href='0303A?r1=<%=r1%>&r2=<%=r2%>&res=<%=res%>&op=<%=multiply%>'">*</button></h3>
+</body>
+</html>
