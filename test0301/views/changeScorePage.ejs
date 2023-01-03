@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>수정하기</h1>
+    <p><%=scoreDB[idx]%> 의 값을 수정합니다.</p>
+    <form action="changeScore">
+        수정할 값 입력:
+        <input type="hidden" value="<%=idx%>" name="index">
+        <input type="number" name="inputNumber">
+        <button type="submit">수정</button>
+    </form>
+    <a href="scoreList">돌아가기</a>
+</body>
+</html>

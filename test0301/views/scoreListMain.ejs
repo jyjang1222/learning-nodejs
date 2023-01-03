@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {list-style: none;}
+    </style>
+</head>
+<body>
+    <%- include('scoreListHeader.ejs') %>
+    <hr>
+    <main>
+        <ul>
+        <% let id = 1 %>
+        <% for (const score of scoreDB) {%>
+            <li>
+                번호: <%= id %> 점수: <%=score%>
+                <button onclick="location.href='changeScorePage?index=<%= id-1 %>'">수정</button>
+                <button onclick="location.href='deleteElem?index=<%= id-1 %>'">삭제</button>
+            </li>
+            <% id++ %>
+        <% } %>
+        </ul>
+    </main>
+</body>
+</html>

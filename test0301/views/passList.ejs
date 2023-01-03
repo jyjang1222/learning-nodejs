@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {list-style: none;}
+    </style>
+</head>
+<body>
+    <h1>합격생</h1>
+    <p>60점 이상</p>
+    <ul>
+    <% let i = 1 %>
+    <% for (const score of scoreDB) { %>
+        <% if (score >= 60) { %>
+        <li>번호: <%= i %> 점수: <%=score%></li>
+        <% } %>
+        <% i++ %>
+    <% } %>
+    </ul>
+    <a href="scoreList">돌아가기</a>
+</body>
+</html>
