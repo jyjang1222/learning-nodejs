@@ -1,7 +1,7 @@
 // 서버 세팅 
 var express = require("express");
 var app = express();
-var port = 3401;
+var port = 3402;
 var server = app.listen(port, function(){
 	console.log("서버가 가동되었습니다" + port);
 });
@@ -25,3 +25,10 @@ app.use(express.static(__dirname + '/img'));
 
 // 라우터 폴더 세팅
 
+// 라우터 세팅
+app.get('/', (req, res) => {
+	res.redirect('main');
+});
+app.get('/main', (req, res) => {
+	res.render('main.ejs');
+});

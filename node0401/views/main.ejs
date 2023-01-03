@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0;padding: 0;}
+        header, footer {background-color: dodgerblue;color: #FFF;}
+        header {padding: 20px 0;}
+        footer {padding: 14px 0;text-align: center;font-size: 12px;}
+        h1 {text-align: center;}
+        nav {padding: 10px 0 10px 20px;background-color: lightgreen;}
+        nav ul {display: flex;}
+        li {list-style: none;}
+        nav a {margin-right: 20px;text-decoration: inherit;color: inherit;}
+        :link {color: inherit;}
+        img {width: 100%;vertical-align: top;}
+    </style>
+</head>
+<body>
+    <%- include('header.ejs') %>
+    <%- include('nav.ejs') %>
+    <main>
+        <img src="타이틀.jpg" alt="타이틀">
+    </main>
+    <%- include('footer.ejs') %>
+</body>
+</html>
