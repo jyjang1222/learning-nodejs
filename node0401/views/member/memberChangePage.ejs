@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0;padding: 0;}
+        header, footer {background-color: dodgerblue;color: #FFF;}
+        header {padding: 20px 0;}
+        footer {padding: 14px 0;text-align: center;font-size: 12px;}
+        h1, h2 {text-align: center;}
+        h2 {margin-bottom: 20px;}
+        nav {padding: 10px 0 10px 20px;background-color: lightgreen;}
+        nav ul {display: flex;}
+        li {list-style: none;}
+        nav a {margin-right: 20px;text-decoration: inherit;color: inherit;}
+        :link {color: inherit;}
+        img {width: 100%;vertical-align: top;}
+        table {width: 400px;margin: 0 auto;border-collapse: collapse;}
+        th, td {padding: 4px 10px;border: 1px solid #000;text-align: left;}
+        th {color: #fff;background-color: dodgerblue;font-size: 16px;}
+        .sort_wrap {display: flex;justify-content: center;gap:20px;margin-bottom: 20px;}
+        select {width: 100px;}
+        main {padding: 60px 0;}
+        textarea {width: 100%;}
+        input[type='text'] {width: 100%;}
+        input[type='radio'], input[type='checkbox'] {margin-right: 4px;}
+    </style>
+</head>
+<body>
+    <%- include('../header.ejs') %>
+    <%- include('../nav.ejs') %>
+    <main>
+        <form action="changeMemberInfo">
+            <input type="hidden" name="index" value="<%=index%>">
+            <h2>회원정보 수정</h2>
+            <table>
+                <tr>
+                    <th>학번</th>
+                    <td><input type="text" name="memberNo"></td>
+                </tr>
+                <tr>
+                    <th>이름</th>
+                    <td><input type="text" name="memberName"></td>
+                </tr>
+                <tr>
+                    <th>학년</th>
+                    <td>
+                        <label for="grade1"><input type="radio" name="grade" id="grade1" value="1">1학년</label>
+                        <label for="grade2"><input type="radio" name="grade" id="grade2" value="2">2학년</label>
+                        <label for="grade3"><input type="radio" name="grade" id="grade3" value="3">3학년</label>
+                        <label for="grade4"><input type="radio" name="grade" id="grade4" value="4">4학년</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>선택과목</th>
+                    <td>
+                        <select name="subjectMenu" id="">
+                            <option value="js">JS</option>
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>취미</th>
+                    <td>
+                        <label for="exercise"><input type="checkbox" name="hobby" id="exercise">운동</label>
+                        <label for="reading"><input type="checkbox" name="hobby" id="reading">독서</label>
+                        <label for="study"><input type="checkbox" name="hobby" id="study">공부</label>
+                        <label for="shopping"><input type="checkbox" name="hobby" id="shopping">쇼핑</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>메모</th>
+                    <td><textarea name="memo" id="" cols="30" rows="10"></textarea></td>
+                </tr>
+            </table>
+            <div style="display:flex;justify-content:center;margin-top:30px;">
+                <button style="padding:4px 8px">입력완료</button>
+            </div>
+        </form>
+    </main>
+    <%- include('../footer.ejs') %>
+</body>
+</html>

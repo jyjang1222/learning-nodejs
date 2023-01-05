@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0;padding: 0;}
+        header, footer {background-color: dodgerblue;color: #FFF;}
+        header {padding: 20px 0;}
+        footer {padding: 14px 0;text-align: center;font-size: 12px;}
+        h1, h2 {text-align: center;}
+        h2 {margin-bottom: 20px;}
+        nav {padding: 10px 0 10px 20px;background-color: lightgreen;}
+        nav ul {display: flex;}
+        li {list-style: none;}
+        nav a {margin-right: 20px;text-decoration: inherit;color: inherit;}
+        :link {color: inherit;}
+        img {width: 100%;vertical-align: top;}
+        table {margin: 0 auto;border-collapse: collapse;}
+        th, td {padding: 4px 10px;border: 1px solid #000;}
+        th {color: #fff;background-color: dodgerblue;font-size: 16px;}
+        td {text-align: center;}
+        .sort_wrap {display: flex;justify-content: center;gap:20px;margin-bottom: 20px;}
+        select {width: 100px;}
+        main {padding: 60px 0;}
+    </style>
+</head>
+<body>
+    <%- include('../header.ejs') %>
+    <%- include('../nav.ejs') %>
+    <main>
+        <h2>회원목록</h2>
+        <div class="sort_wrap">
+            <select name="sortType" id="">
+                <option value="">학번</option>
+                <option value="">이름</option>
+                <option value="">학년</option>
+            </select>
+            <button style="padding:0 8px">정렬</button>
+        </div>
+        <table>
+            <tr>
+                <th>학번</th>
+                <th>이름</th>
+                <th>학년</th>
+                <th>수정</th>
+                <th>삭제</th>
+            </tr>
+            <% let i = 0 %>
+            <% for (const member of memberDB) { %>
+            <tr>
+                <td><%= member.memberNo %></td>
+                <td><%= member.memberName %></td>
+                <td><%= member.memberGrade %></td>
+                <td><button onclick="location.href='memberChangePage?index=<%=i%>'">수정</button></td>
+                <td><button onclick="location.href='delMember?index=<%=i%>'">삭제</button></td>
+            </tr>
+            <% i++ %>
+            <% } %>
+        </table>
+        <a href="main" style="display:block;margin-top:20px;text-align: center;text-decoration: none;color: blue;">메인으로 가기</a>
+    </main>
+    <%- include('../footer.ejs') %>
+</body>
+</html>
