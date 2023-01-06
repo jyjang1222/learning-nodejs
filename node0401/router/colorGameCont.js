@@ -10,6 +10,7 @@ module.exports = app => {
         const $colorGameInfo = req.session.colorGameInfo;
         $colorGameInfo.block = Number(req.query.block);
         $colorGameInfo.colorGap = Number(req.query.colorGap);
+        $colorGameInfo.level = Number(req.query.level);
         req.session.colorGameInfo = $colorGameInfo;
         res.redirect('colorGame');
     })
