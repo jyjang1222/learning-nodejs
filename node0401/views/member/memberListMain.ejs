@@ -33,12 +33,14 @@
     <main>
         <h2>회원목록</h2>
         <div class="sort_wrap">
-            <select name="sortType" id="">
-                <option value="">학번</option>
-                <option value="">이름</option>
-                <option value="">학년</option>
-            </select>
-            <button style="padding:0 8px">정렬</button>
+            <form action="sortMemberList">
+                <select name="sortType" id="">
+                    <option value="0">학번</option>
+                    <option value="1">이름</option>
+                    <option value="2">학년</option>
+                </select>
+                <button type="submit" style="padding:0 8px">정렬</button>
+            </form>
         </div>
         <table>
             <tr>

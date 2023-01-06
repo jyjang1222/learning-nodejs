@@ -34,20 +34,50 @@ module.exports = app => {
     });
 
     app.get('/memberChangePage', (req, res) => {
-        res.render('member/memberChangePage.ejs');
+        const data = {
+            'index': req.query.index
+        }
+        res.render('member/memberChangePage.ejs', data);
     });
 
     app.get('/changeMemberInfo', (req, res) => {
         $memberDB = req.session.memberDB;
         const idx = req.query.index;
 
-        $memberDB[idx].memberNo,
-        $memberDB[idx].memberName,
-        $memberDB[idx].memberGrade,
-        $memberDB[idx].memberSubject,
-        $memberDB[idx].memberHobby,
-        $memberDB[idx].memberMemo
+        $memberDB[idx].memberNo = req.query.memberNo;
+        $memberDB[idx].memberName = req.query.memberName;
+        $memberDB[idx].memberGrade = req.query.grade;
+        $memberDB[idx].memberSubject = req.query.memberSubject;
+        $memberDB[idx].memberHobby = req.query.hobby;
+        $memberDB[idx].memberMemo = req.query.memo;
 
+        req.session.memberDB = $memberDB;
 
+        res.redirect('memberListMain');
+    });
+
+    app.get('/sortMemberList', (req, res) => {
+        $memberDB = req.session.memberDB;
+        const sortType = Number(req.query.sortType);
+        const No = 0;
+        const Name = 1;
+        const Grade = 2;
+
+        if (sortType === No) {
+            $memberDB.sort((a, b) => a.memberNo - b.memberNo);
+        }
+        if (sortType === Name) {
+            $memberDB.sort((a, b) => {
+                if (a.memberName < b.memberName) return -1;
+                if (a.memberName > b.memberName) return 1;  
+                if (a.memberName === b.memberName) return 0;
+            });
+        }
+        if (sortType === Grade) {
+            $memberDB.sort((a, b) => a.memberGrade - b.memberGrade);
+        }
+
+        req.session.memberDB = $memberDB;
+        res.redirect('memberListMain');
     });
 }
