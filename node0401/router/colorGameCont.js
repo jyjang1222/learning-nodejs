@@ -8,11 +8,9 @@ module.exports = app => {
 
     app.get('/clickAnswerBlock', (req, res) => {
         const $colorGameInfo = req.session.colorGameInfo;
-        $colorGameInfo.block = req.query.block;
+        $colorGameInfo.block = Number(req.query.block);
+        $colorGameInfo.colorGap = Number(req.query.colorGap);
         req.session.colorGameInfo = $colorGameInfo;
-        const data = {
-            'colorGameInfo': req.session.colorGameInfo
-        }
-        res.redirect('colorGame',data);
+        res.redirect('colorGame');
     })
 }

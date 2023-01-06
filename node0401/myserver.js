@@ -30,7 +30,7 @@ require(__dirname + '/router/colorGameCont')(app);
 // 라우터 세팅
 app.get('/', (req, res) => {
 	const $memberDB = getMemberSample();
-	const $colorGameInfo = {'block': 2};
+	const $colorGameInfo = {'block': 2, 'colorGap': 40};
 	req.session.colorGameInfo = $colorGameInfo;
 	req.session.memberDB = $memberDB;
 	res.redirect('main');
