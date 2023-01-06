@@ -25,10 +25,13 @@ app.use(express.static(__dirname + '/img'));
 
 // 라우터 폴더 세팅
 require(__dirname + '/router/memberController')(app);
+require(__dirname + '/router/colorGameCont')(app);
 
 // 라우터 세팅
 app.get('/', (req, res) => {
 	const $memberDB = getMemberSample();
+	const $colorGameInfo = {'block': 2};
+	req.session.colorGameInfo = $colorGameInfo;
 	req.session.memberDB = $memberDB;
 	res.redirect('main');
 });

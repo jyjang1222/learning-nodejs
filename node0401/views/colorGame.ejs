@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0;padding: 0;}
+        header, footer {background-color: dodgerblue;color: #FFF;}
+        header {padding: 20px 0;}
+        footer {padding: 14px 0;text-align: center;font-size: 12px;}
+        h1, h2 {text-align: center;}
+        h2 {margin-bottom: 20px;}
+        nav {padding: 10px 0 10px 20px;background-color: lightgreen;}
+        nav ul {display: flex;}
+        li {list-style: none;}
+        nav a {margin-right: 20px;text-decoration: inherit;color: inherit;}
+        :link {color: inherit;}
+        img {width: 100%;vertical-align: top;}
+        table {margin: 0 auto;border-collapse: collapse;}
+        th, td {padding: 4px 10px;border: 1px solid #000;}
+        th {color: #fff;background-color: dodgerblue;font-size: 16px;}
+        td {text-align: center;}
+        .sort_wrap {display: flex;justify-content: center;gap:20px;margin-bottom: 20px;}
+        select {width: 100px;}
+        main {padding: 80px 0 100px;}
+        .color_list {display: flex;flex-wrap:wrap;width:500px;height:500px;margin: 0 auto;padding: 3px;border: 12px solid darkcyan;background-color: #EEE;}
+        .color_list li {display: block;box-sizing:border-box;border: 3px solid #EEE;cursor: pointer;}
+    </style>
+</head>
+<body>
+    <%- include('header.ejs') %>
+    <%- include('nav.ejs') %>
+    <% 
+        const block = colorGameInfo.block;
+        const blockTotal = block ** 2;
+        const w = 100 / block;
+        const h = 100 / block; 
+        const r = Math.trunc(Math.random() * blockTotal)
+        const colorGap = 40;
+
+        const rgb1 = [];
+        for (let i = 0; i < 3; i++) {
+            const r = Math.trunc(Math.random() * 256);
+            rgb1.push(r);
+        }
+
+        const rgb2 = [];
+        for (const rgb of rgb1) {
+            rgb2.push(rgb - colorGap);
+        }
+
+        const rgb1Str = rgb1.join(',');
+        const rgb2Str = rgb2.join(',');
+    %>
+    <main>
+        <h2>색깔맞추기</h2>
+        <div class="color_list_wrap">
+            <ul class="color_list">
+            <% for (let n = 0; n < blockTotal-r-1; n++) { %>
+                <li style="width:<%=w%>%;height:<%=h%>%;background-color: rgb(<%=rgb1Str%>);"></li>
+            <% } %>
+            <li style="width:<%=w%>%;height:<%=h%>%;background-color: rgb(<%=rgb2Str%>);" onclick="location.href='clickAnswerBlock?block=<%= block + 1 %>'"></li>
+            <% for (let n = blockTotal-r; n < blockTotal; n++) { %>
+                <li style="width:<%=w%>%;height:<%=h%>%;background-color: rgb(<%=rgb1Str%>);"></li>
+            <% } %>
+            </ul>
+        </div>
+    </main>
+    <%- include('footer.ejs') %>
+</body>
+</html>
