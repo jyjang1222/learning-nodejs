@@ -63,7 +63,7 @@
             <% for (let n = 0; n < blockTotal-r-1; n++) { %>
                 <li style="width:<%=w%>%;height:<%=h%>%;background-color: rgb(<%=rgb1Str%>);"></li>
             <% } %>
-            <li style="width:<%=w%>%;height:<%=h%>%;background-color: rgb(<%=rgb2Str%>);" onclick="location.href='clickAnswerBlock?block=<%= (block < 10) ? block + 1 : block %>&colorGap=<%=(colorGap > 0) ? colorGap - 1 : colorGap %>&level=<%= (level < 40) ? level + 1 : level %>'"></li>
+                <li style="width:<%=w%>%;height:<%=h%>%;background-color: rgb(<%=rgb2Str%>);" onclick="location.href='clickAnswerBlock?block=<%= (block < 10) ? block + 1 : block %>&colorGap=<%=(colorGap > 0) ? colorGap - 1 : colorGap %>&level=<%= (level < 40) ? level + 1 : level %>'"></li>
             <% for (let n = blockTotal-r; n < blockTotal; n++) { %>
                 <li style="width:<%=w%>%;height:<%=h%>%;background-color: rgb(<%=rgb1Str%>);"></li>
             <% } %>
