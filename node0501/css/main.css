@@ -1,0 +1,53 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+}
+.top {
+    width: 100%;
+    height: 80px;
+    background-color: blue;
+    color: white;
+    text-align: center;
+    line-height: 80px;
+}
+
+a { 
+    text-decoration: none; 
+}
+.navtext {
+    color: black;
+}
+.navtext:hover{
+    color : red;
+}
+.nav1 {
+    width: 100%;
+    height: 40px;
+    background-color: lightgreen;
+    line-height: 40px;
+}
+.nav2 {
+    width: 100%;
+    height: 40px;
+    background-color: lightblue;
+    line-height: 40px;
+}
+.nav3 {
+    width: 100%;
+    height: 40px;
+    background-color: lightgrey;
+    line-height: 40px;
+}
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background-color: blue;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    font-size: 11px;
+}
+
+table {text-align: center;}

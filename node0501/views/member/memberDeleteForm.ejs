@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원삭제</title>
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <%- include('../top.ejs') %>
+  <%- include('../nav.ejs') %>
+
+  <div align="center">
+    <br><br>
+    <h2>회원삭제</h2>
+    <br>
+    <form action="memberDeletePro">
+      <table border="1">
+        <tr>
+          <td>아이디</td>
+          <td><input type="text" name="memberId" value="<%=memberDB[0].memberId%>" readonly></td>
+        </tr>
+        <tr>
+          <td>비밀번호</td>
+          <td><input type="text" name="memberPw"></td>
+        </tr>
+  
+        <tr>
+          <td colspan="2" align="center">
+            <button type="submit">입력완료</button>
+            <button type="button" onclick="location.href='main'">홈으로</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  <br><br>
+  <%- include('../footer.ejs') %>
+</body>
+</html>
