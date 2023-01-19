@@ -15,17 +15,17 @@
 ## 서버 세팅
 ```javascript
 // 서버 세팅 
-var express = require("express"); // express 변수생성
-var app = express();              // app 에 express변수 저장
-var port = 80;				  // 포트번호 생성 
-var server = app.listen(port, function(){
+const express = require("express"); // express 변수생성
+const app = express();              // app 에 express변수 저장
+const port = 80;				  // 포트번호 생성 
+const server = app.listen(port, function(){
 	console.log("서버가 가동되었습니다" + port);
 }); // 서버를 생성하는 명령어(외워야함)
 ```
 
 ## ejs 세팅(views)
 ```javascript
-var ejs = require("ejs");    // ejs 변수생성
+const ejs = require("ejs");    // ejs 변수생성
 app.set("views", __dirname);  // 경로설정 
 app.set("view engine", "ejs");  // ejs세팅1  
 app.engine("ejs", ejs.renderFile); // ejs세팅2  
@@ -44,7 +44,7 @@ app.get("/test02", function(req, res){
 
 ## session 세팅
 ```javascript
-var session = require("express-session");
+const session = require("express-session");
 app.use(session({
 	secret : "abcdefg",
 	resave : false,
