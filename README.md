@@ -20,7 +20,7 @@ const app = express();              // app 에 express변수 저장
 const port = 80;				  // 포트번호 생성 
 const server = app.listen(port, function(){
 	console.log("서버가 가동되었습니다" + port);
-}); // 서버를 생성하는 명령어(외워야함)
+});
 ```
 
 ## ejs 세팅(views)
