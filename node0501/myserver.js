@@ -25,7 +25,7 @@ app.use(express.static("./"));
 
 // router 세팅
 require("./router/memberController")(app);
-
+require("./router/memberTestController")(app);
 
 app.get('/', (req, res) => {
     res.redirect('main');

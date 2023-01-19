@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>회원등록</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <%- include('../top.ejs') %>
+  <%- include('../nav.ejs') %>
+
+  <div align="center">
+    <br><br>
+    <h2>회원등록</h2>
+    <br>
+    <form action="memberTestRandomAddPro">
+      <table border="1">
+        <tr>
+          <td>랜덤추가 회원수</td>
+          <td><input type="number" name="randomCount"></td>
+        </tr>
+      </table>
+      <br>
+      <input type="submit" value="입력완료">
+    </form>
+  </div>
+  <%- include('../footer.ejs') %>
+</body>
+</html>

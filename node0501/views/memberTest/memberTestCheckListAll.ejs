@@ -1,0 +1,53 @@
+<!DOCTYPE html >
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>회원 목록</title>
+	<link rel="stylesheet" href="css/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+  <%- include('../top.ejs') %>
+  <%- include('../nav.ejs') %>
+	<div align="center">
+		<br><br>
+		<h2>회원 목록 (체크삭제)</h2>
+		<br>
+		<form action="memberTestCheckDeletePro">
+			<table border="1">		
+				<tr align="center">	
+					<th width="100px"><input type="checkbox" class="check_all"></th>
+					<th width="100px">번호</th>
+					<th width="100px">아이디</th>
+					<th width="100px">이름</th>
+					<th width="350px">이메일</th>				
+				</tr>
+        <% for (const member of memberDB) { %>
+				<tr>
+          <td><input type="checkbox" name="memberCheck" value="<%= member.memberNo %>"></td>
+          <td><%= member.memberNo %></td>
+          <td><%= member.memberId %></td>
+          <td><%= member.memberName %></td>
+          <td><%= member.memberEmail %></td>
+				</tr>
+			  <% } %>
+			</table>
+      <br>
+      <input type="submit" value="체크삭제">
+		</form>		
+	</div>
+  <br><br>
+  <%- include('../footer.ejs') %>
+  <script>
+    $('.check_all').click(function() {
+      const checked = $(this).is(":checked");
+
+      if (checked) {
+        $('table tr:nth-child(n+1) input[type="checkbox"]').prop('checked', true);
+      } else {
+        $('table tr:nth-child(n+1) input[type="checkbox"]').prop('checked', false);
+      }
+    });
+  </script>
+</body>
+</html>
