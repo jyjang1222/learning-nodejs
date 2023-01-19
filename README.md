@@ -26,7 +26,7 @@ const server = app.listen(port, function(){
 ## ejs 세팅(views)
 ```javascript
 const ejs = require("ejs");    // ejs 변수생성
-app.set("views", __dirname);  // 경로설정 
+app.set("views", __dirname + "/views");  // 경로설정 
 app.set("view engine", "ejs");  // ejs세팅1  
 app.engine("ejs", ejs.renderFile); // ejs세팅2  
 ```
@@ -46,11 +46,17 @@ app.get("/test02", function(req, res){
 ```javascript
 const session = require("express-session");
 app.use(session({
-	secret : "abcdefg",
-	resave : false,
-	saveUninitialized : false
+	secret : "abcdefg", // 아무내용으로 해놓으면된다. 
+	resave : false, // 매requst 마다 session 을 다시 저장하는 옵션 (true로 하면 호율이 나빠진다. )
+	saveUninitialized : false // 빈세션이 계속 저장될수있다. false 로 해놓으면된다. (true로 하면 호율이 나빠진다. )
 }));
 ```
+
+1. 리퀘스트와 달리 데이터가 항상유지된다. 
+2. 브라우저를 종료하면 세션의 데이터는 자동삭제된다. 
+3. npm install express-session
+4. 사용법 ==> req.session.변수명 = 값 
+
 
 ## 폴더 경로 세팅
 ```javascript
@@ -58,7 +64,7 @@ app.use(session({
 app.use(express.static('./'));
 ```
 
-## router 세팅
+## router 폴더 연결
 ```javascript
 require("./router/memberController")(app);
 require("./router/memberTestController")(app);
