@@ -9,6 +9,9 @@
 2. 터미널에 node myserver.js 를 입력하면 서버 실행이 된다.
 3. 브라우저에서 localhost:(port number) 를 입력하면 서버에 접속이 가능하다.
 
+## 추가 모듈 설치
+- npm i express express-session ejs mysql
+
 ## 서버 세팅
 ```javascript
 // 서버 세팅 
@@ -28,7 +31,7 @@ app.set("view engine", "ejs");  // ejs세팅1
 app.engine("ejs", ejs.renderFile); // ejs세팅2  
 ```
 
-## 라우터 세팅
+## ejs파일 렌더링
 ```javascript
 // res.render 하나당 ejs파일을 하나씩 추가한다. 
 app.get("/main", function(req, res){ 
@@ -37,4 +40,41 @@ app.get("/main", function(req, res){
 app.get("/test02", function(req, res){ 
     res.render("test02.ejs"); 
 });
+```
+
+## session 세팅
+```javascript
+var session = require("express-session");
+app.use(session({
+	secret : "abcdefg",
+	resave : false,
+	saveUninitialized : false
+}));
+```
+
+## 폴더 경로 세팅
+```javascript
+// 폴더 경로 셋팅
+app.use(express.static('./'));
+```
+
+## router 세팅
+```javascript
+require("./router/memberController")(app);
+require("./router/memberTestController")(app);
+```
+
+## mysql 세팅
+```javascript
+// mysql 아래 명령어를 db상에서 반드시 실행해야한다.  
+// ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+const mysql = require("mysql");
+const conn_info = {
+	host : "localhost",
+	port : 3306,
+	user : "root",
+	password : "root",
+	database : "_node_db_test",
+    multipleStatements: true    // 여러 쿼리를 ;를 기준으로 한번에 보낼 수 있게 해줌.
+};
 ```

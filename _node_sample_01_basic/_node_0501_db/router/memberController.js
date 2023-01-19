@@ -61,7 +61,8 @@ module.exports = function(app){
 
         console.log(sortStandard);
         var conn = mysql.createConnection(conn_info);
-        var sql = " SELECT * FROM member ORDER BY " + sortStandard; // ORDER BY 는 + 로 연결해야한다. 
+        // var sql = " SELECT * FROM member ORDER BY " + sortStandard; // ORDER BY 는 + 로 연결해야한다. 
+        var sql = ` SELECT * FROM member ORDER BY ${sortStandard} `;
         
         conn.query(sql , function(error, rows) {
             console.log(rows);
@@ -80,7 +81,7 @@ module.exports = function(app){
         var conn = mysql.createConnection(conn_info);
 
         // db 로 전달될 데이터는 ? 로 표시한다. 
-         var sql = "SELECT * FROM member WHERE memberNo=?";
+        var sql = "SELECT * FROM member WHERE memberNo=?";
 
         // 위 ? 에 넣을 데이터를 배열로 순서대로 저장한다. 
         var inputData = [memberNo];
